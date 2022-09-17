@@ -1,7 +1,6 @@
 const BASE_URL = "https://api.hnpwa.com/v0";
 let loading = false;
 let currentPage = 0;
-let rows_per_page = 30;
 
 // To avoid too many if-else using object point reff
 const URL_END_POINT = {
@@ -77,9 +76,17 @@ const fetchAPI = async (URL, PAGE) => {
 
           let p = document.createElement("p");
           if (news.points || news.user) {
+            let anchor = document.createElement("a");
+            anchor.setAttribute(
+              "href",
+              `/pages/user/index.html?user=${news.user}`
+            );
+
+            anchor.innerHTML = news.user;
+
             p.innerText = `${news.points} by `;
-            userSpan.innerText = `${news.user} `;
-            dateSpan.innerText = `| ${news.time_ago}`;
+            userSpan.append(anchor);
+            dateSpan.innerText = ` | ${news.time_ago}`;
 
             p.appendChild(userSpan);
             p.appendChild(dateSpan);
