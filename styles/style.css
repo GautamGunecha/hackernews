@@ -101,6 +101,11 @@ nav ul li:active {
     cursor: pointer;
 }
 
+.user:hover {
+    cursor: pointer;
+    border-bottom: 1px solid gray;
+}
+
 /* Footer */
 
 footer {
