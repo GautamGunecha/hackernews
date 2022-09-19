@@ -38,7 +38,11 @@ const fetchAPI = async (URL, PAGE) => {
   loading = true;
   let newsData = [];
   try {
-    const response = await axios.get(`${BASE_URL}/${URL}/${PAGE}.json`);
+    const response = await axios.get(`${BASE_URL}/${URL}/${PAGE}.json`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
     loading = false;
 
     if (!response.data) {
