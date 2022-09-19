@@ -58,8 +58,8 @@ const fetchAPI = async (URL, PAGE) => {
 
     newsData.push(response.data);
 
-    const displayAllNews = (newsData) => {
-      newsData.forEach((news) => {
+    const displayAllNews = () => {
+      newsData[0].forEach((news) => {
         if (loading) {
           let section = document.createElement("section");
 
@@ -114,7 +114,7 @@ const fetchAPI = async (URL, PAGE) => {
       });
     };
 
-    return displayAllNews(newsData[0]);
+    return displayAllNews();
   } catch (error) {
     console.log(error);
     loading = false;
